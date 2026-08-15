@@ -1,0 +1,13 @@
+claim_id,claim_text,paper_id,evidence_location,V,D,P,Q,audit_status,notes
+C01,"RICL 通过后置训练与检索上下文使冻结 VLA 具备新任务适应接口",ricl-2025,"OpenReview 摘要与 TL;DR",V2,D2,P2,Q2,pass,"未外推未读取的实验数值"
+C02,"语言反馈策略可在不微调底层 VLA 的情况下闭环转向，并用保形改进头抑制有害干预",vla-steering-2026,"arXiv 摘要；方法章节",V3,D2,P1,Q2,pass,"安全含义限于作者定义的 harmlessness"
+C03,"OpenVLA 支持低秩微调并可作为部署适配开放底座",openvla-2025,"PMLR 正式摘要",V2,D1,P2,Q2,pass,"不称为在线学习"
+C04,"OFT 联合并行解码、动作分块、连续动作和回归目标改善可部署控制",openvla-oft-2025,"作者项目页 TLDR；论文方法",V3,D1,P1,Q2,pass,"性能数值未作为跨设置主张"
+C05,"视觉机器人策略的简单继续强化微调可作为持续适配强基线",never-stop-learning-2021,"PMLR 正式摘要",V2,D1,P2,Q2,pass,"非 VLA 桥接"
+C06,"Sirius 用部署接管数据与信任加权行为克隆构成闭环学习",sirius-2023,"RSS 正式摘要与方法概述",V3,D1,P2,Q2,pass,"非 VLA 桥接"
+C07,"ROVE 用价值估计从不完美人类干预中选择性强化更新人形 VLA",rove-2026,"arXiv 摘要",V2,D2,P1,Q2,pass,"结果按作者报告"
+C08,"VLA-RL 用在线轨迹与过程奖励模型更新自回归 VLA",vla-rl-2025,"arXiv 摘要与方法",V3,D2,P1,Q2,pass,"主要为模拟证据"
+C09,"ROAD-VLA 发现文本特权教师在其设置中无效并改用动作空间近端教师",road-vla-2026,"arXiv 摘要与消融",V3,D2,P1,Q2,pass,"负面结论严格限定设计范围"
+C10,"Agentic-VLA 组合奖励合成、语言探索和经验记忆，但存在奖励投机与物理部署复杂性",agentic-vla-2026,"arXiv 摘要；讨论章节",V3,D2,P1,Q1,pass,"预印本、模拟为主"
+C11,"RoboCat 用新任务示范、自生成轨迹和回灌训练形成阶段式自改进循环",robocat-2023,"TMLR/arXiv 摘要与循环说明",V3,D1,P2,Q2,pass,"视觉目标条件近邻工作"
+C12,"CLARE 以适配器自主扩展和无任务标签路由支持 VLA 持续学习",clare-2026,"方法 IV-C/IV-D；评估 V；RA-L DOI",V3,D2,P2,Q2,pass,"同行评议直接证据"

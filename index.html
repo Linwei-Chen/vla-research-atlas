@@ -1,0 +1,223 @@
+<!doctype html>
+<!-- build-research-atlas managed asset: reader-ui-v2 -->
+<html lang="zh-CN" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="按更新信号与部署闭环强度，从即时上下文适应下钻到长期持续学习">
+  <title>VLA 部署期在线适应与持续学习研究地图</title>
+  <script>document.documentElement.className = "js";</script>
+  <link rel="stylesheet" href="css/atlas.css">
+  <script defer src="data/atlas-meta.js"></script>
+  <script defer src="data/papers-data.js"></script>
+  <script defer src="js/atlas.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#atlas-index">跳到文献与成果索引</a>
+
+  <header class="site-header">
+    <a class="site-mark" href="index.html" aria-label="返回研究地图首页">
+      <span aria-hidden="true">◎</span>
+      <span>RESEARCH ATLAS</span>
+    </a>
+    <nav aria-label="页面导航">
+      <a href="#atlas-map">全貌</a>
+      <a href="#route-guide">路线</a>
+      <a href="#timeline">时间线</a>
+      <a href="#atlas-index">文献索引</a>
+      <a href="#scope">范围</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p id="domainName" class="eyebrow">机器人视觉—语言—动作模型在部署期的在线适应与持续学习</p>
+        <h1 id="page-title">VLA 部署期在线适应与持续学习研究地图</h1>
+        <p id="pageSubtitle" class="hero-subtitle">按更新信号与部署闭环强度，从即时上下文适应下钻到长期持续学习</p>
+        <p id="scopeNote" class="scope-note">L1 结构化范围扫描。纳入直接研究 VLA 部署期适应的工作，以及少量不可替代的在线机器人学习桥接证据；排除只有离线预训练或零样本泛化、没有部署期更新机制的工作。检索截至 2026-08-09，不声称穷尽。</p>
+      </div>
+      <dl class="hero-ledger" aria-label="地图摘要">
+        <div><dt>纳入成果</dt><dd id="heroPaperCount">12</dd></div>
+        <div><dt>研究路线</dt><dd id="heroRouteCount">5</dd></div>
+        <div><dt>资料截止</dt><dd id="heroUpdated">2026-08-09</dd></div>
+        <div><dt>分析维度</dt><dd id="heroAxis">部署闭环强度</dd></div>
+        <div><dt>覆盖深度</dt><dd id="heroCoverage">L1 · 结构化扫描</dd></div>
+      </dl>
+    </section>
+
+    <section id="atlas-map" class="map-section section-shell" aria-labelledby="map-section-title">
+      <header class="section-heading">
+        <div>
+          <p class="eyebrow">领域全貌</p>
+          <h2 id="map-section-title">路线 × 层级</h2>
+        </div>
+        <p>先用关键词和出版状态缩小范围，再点地图节点聚焦一组工作。其他节点会继续保留，方便在不同路线与层级之间连续比较。</p>
+      </header>
+
+      <form id="atlasControls" class="atlas-controls" role="search">
+        <label class="search-control">
+          <span>搜索题名、机制、证据或标签</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="输入研究主题或方法">
+        </label>
+        <label>
+          <span>出版状态</span>
+          <select id="statusFilter">
+            <option value="all">全部状态</option>
+            <option value="peer-reviewed">同行评议</option>
+            <option value="preprint">预印本</option>
+            <option value="official-report">官方报告或标准</option>
+          </select>
+        </label>
+        <label>
+          <span>聚焦路线</span>
+          <select id="routeFilter">
+            <option value="all">全部路线</option>
+          </select>
+        </label>
+        <label>
+          <span id="levelFilterLabel">聚焦层级</span>
+          <select id="levelFilter">
+            <option value="all">全部层级</option>
+          </select>
+        </label>
+        <button id="resetFilters" class="button quiet" type="button">重置筛选</button>
+      </form>
+
+      <div class="atlas-workbench">
+        <div class="map-stage">
+          <section class="mobile-clusters" aria-labelledby="mobile-cluster-title">
+            <header>
+              <p class="eyebrow">按组浏览</p>
+              <h3 id="mobile-cluster-title">选择路线与层级</h3>
+              <p>每个按钮对应一组研究工作，数字会随关键词和出版状态筛选实时更新。</p>
+            </header>
+            <div id="mobileClusterGrid" class="mobile-cluster-grid"></div>
+          </section>
+
+          <div class="desktop-map-wrap">
+            <svg id="atlasSvg" class="atlas-svg" viewBox="0 0 800 680" role="group" aria-labelledby="mapTitle mapDescription">
+              <title id="mapTitle">研究领域聚合地图</title>
+              <desc id="mapDescription">主要路线沿圆周排列，第二分类轴沿同心环排列。每个按钮显示一个路线与层级组合的条目数量。</desc>
+            </svg>
+          </div>
+          <p id="mapEmpty" class="empty-message" hidden>当前搜索与出版状态下没有可显示的条目。请放宽条件。</p>
+        </div>
+
+        <aside id="groupInspector" class="group-inspector" aria-labelledby="inspectorTitle">
+          <div id="inspectorContent">
+            <p class="eyebrow">分组预览</p>
+            <h3 id="inspectorTitle">从一个分组开始阅读</h3>
+            <p>鼠标悬停、键盘聚焦或手机轻触任一节点，即可预览这组工作并进入详情。</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="map-actions">
+        <p id="contextCount">当前范围：0 项；聚焦结果：0 项。</p>
+        <div>
+          <button id="clearSelection" class="button quiet" type="button" hidden>取消组选择</button>
+          <a class="button primary" href="#atlas-index">查看聚焦结果</a>
+        </div>
+      </div>
+      <div id="atlasLive" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    </section>
+
+    <section id="route-guide" class="route-section section-shell" aria-labelledby="route-title">
+      <header class="section-heading compact">
+        <div>
+          <p class="eyebrow">路线导览</p>
+          <h2 id="route-title">每条路线回答什么</h2>
+        </div>
+      </header>
+      <div id="routeCards" class="route-cards"></div>
+      <p id="routeEmpty" class="empty-message" hidden>研究路线尚未加载，请检查本地数据文件。</p>
+    </section>
+
+    <section id="timeline" class="timeline-section section-shell" aria-labelledby="timeline-title">
+      <header class="section-heading compact">
+        <div>
+          <p class="eyebrow">发展时间线</p>
+          <h2 id="timeline-title">关键工作如何沿时间展开</h2>
+        </div>
+        <p>每根柱表示该年份纳入地图的工作数。它反映本次检索语料的年代分布，不等同整个领域的真实发文量。</p>
+      </header>
+      <div id="yearTimeline" class="year-timeline" role="list" aria-label="按年份统计的纳入条目"></div>
+      <p id="timelineEmpty" class="empty-message" hidden>尚无可绘制年份的条目。</p>
+    </section>
+
+    <section id="atlas-index" class="index-section section-shell" aria-labelledby="index-title">
+      <header class="section-heading index-heading">
+        <div>
+          <p class="eyebrow">研究工作索引</p>
+          <h2 id="index-title" tabindex="-1">按路线浏览本次收录</h2>
+        </div>
+        <p id="resultSummary">显示 0 项。</p>
+      </header>
+      <div id="activeFilters" class="active-filters" aria-label="当前筛选"></div>
+      <div id="paperIndex" class="paper-index"></div>
+      <div id="indexEmpty" class="empty-panel" hidden>
+        <h3>没有匹配条目</h3>
+        <p>尝试清除关键词，或放宽出版状态、路线和层级筛选。</p>
+      </div>
+    </section>
+
+    <section id="scope" class="scope-section section-shell" aria-labelledby="scope-title">
+      <header class="section-heading compact">
+        <div>
+          <p class="eyebrow">证据边界</p>
+          <h2 id="scope-title">调研边界与延伸阅读</h2>
+        </div>
+      </header>
+      <div class="scope-grid">
+        <article>
+          <h3>领域概览</h3>
+          <p id="overviewText">该领域的关键差异不是模型规模，而是部署时什么发生变化：上下文、语言提示、少量任务数据、交互轨迹、策略参数或可扩展模块。地图以决定性更新信号划分五条路线，并以更新发生的时间尺度划分四级闭环。直接 VLA 证据目前集中在少样本后训练、在线强化学习和适配器式持续学习；实体机器人、长期开放世界和安全触发的联合证据仍稀疏。</p>
+        </article>
+        <article>
+          <h3>范围与受众</h3>
+          <p id="audienceText">目标读者：机器人学习、具身智能与多模态模型研究人员</p>
+          <p id="scopeText">覆盖边界：L1 结构化范围扫描。纳入直接研究 VLA 部署期适应的工作，以及少量不可替代的在线机器人学习桥接证据；排除只有离线预训练或零样本泛化、没有部署期更新机制的工作。检索截至 2026-08-09，不声称穷尽。</p>
+          <p id="coverageText">覆盖深度：L1 · 结构化扫描</p>
+        </article>
+        <article id="thesisCard">
+          <h3>核心判断</h3>
+          <p id="thesisText">部署期适应正在从批次式少样本微调走向由奖励、干预和记忆驱动的闭环更新，但稳定性、真实机器人交互成本和跨任务遗忘仍是决定可部署性的三条硬约束。</p>
+        </article>
+        <article id="recommendationCard">
+          <h3>建议阅读路径</h3>
+          <p id="recommendationText">先读 RICL、Sirius、VLA-RL、RoboCat 与 CLARE 建立五条路线，再用 ROAD-VLA 的负面结果和 OpenVLA-OFT 的部署工程证据校正直觉。</p>
+        </article>
+        <article>
+          <h3>报告与数据</h3>
+          <ul class="artifact-links">
+            <li><a href="docs/REPORT.md">综合报告</a></li>
+            <li><a href="docs/SEARCH_AUDIT.md">检索与证据审计</a></li>
+            <li><a href="data/papers.json">JSON 文献库</a></li>
+            <li><a href="data/papers.csv">CSV 文献表</a></li>
+            <li><a href="data/references.bib">BibTeX 引用库</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong id="footerTitle">VLA 部署期在线适应与持续学习研究地图</strong><br><span id="footerUpdated">资料截止：2026-08-09</span></p>
+    <p>可离线阅读 · 数据与结论边界见范围说明</p>
+  </footer>
+
+  <noscript>
+    <section class="noscript-note">
+      <h2>无脚本阅读入口</h2>
+      <p>交互地图需要浏览器运行本地脚本，但综合报告、检索审计和结构化数据仍可直接打开。</p>
+      <ul class="artifact-links">
+        <li><a href="docs/REPORT.md">综合报告</a></li>
+        <li><a href="docs/SEARCH_AUDIT.md">检索与证据审计</a></li>
+        <li><a href="data/papers.json">JSON 文献库</a></li>
+      </ul>
+    </section>
+  </noscript>
+</body>
+</html>
